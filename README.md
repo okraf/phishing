@@ -6,4 +6,4 @@ Page de sensibilisation au phishing à destination des collaborateurs en entrepr
 
 ---
 
-Réalisé par [perceval.sh](https://perceval.sh) — Cybersécurité offensive & sensibilisation.
+Vibecode par [perceval.sh](https://perceval.sh) — Cybersécurité offensive & sensibilisation.
