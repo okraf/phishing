@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phishing : Reconnaître et contrer les attaques — Perceval</title>
+  <title>Phishing : reconnaître et contrer les attaques · Perceval</title>
   <meta name="description" content="Guide pratique de défense contre le phishing : types d'attaques, checklist d'analyse, quiz interactif. Par Perceval, consultant cybersécurité.">
 
-  <!-- Favicon SVG hameçon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M22 4 C22 4 26 4 26 9 C26 14 20 17 20 17 L20 26 C20 28.2 18.2 30 16 30 C13.8 30 12 28.2 12 26 C12 23.8 13.8 22 16 22 C17 22 17.9 22.4 18.5 23 L18.5 17 C18.5 17 24.5 13.5 24.5 9 C24.5 5.5 22 4 22 4 Z' fill='none' stroke='%23c0af12' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='26' cy='4' r='2' fill='%23c0af12'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#EFEEEC">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Phishing : Reconnaître et contrer les attaques — Perceval">
+  <meta property="og:title" content="Phishing : reconnaître et contrer les attaques · Perceval">
   <meta property="og:description" content="91% des cyberattaques commencent par un email. Testez votre vigilance et protégez votre équipe.">
   <meta property="og:url" content="https://perceval.sh/phishing">
   <meta property="og:site_name" content="Perceval">
@@ -19,15 +21,12 @@
 
   <!-- Twitter / LinkedIn card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Phishing : Reconnaître et contrer les attaques — Perceval">
+  <meta name="twitter:title" content="Phishing : reconnaître et contrer les attaques · Perceval">
   <meta name="twitter:description" content="Quiz interactif, checklist d'analyse et guide complet pour former vos équipes contre le phishing.">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;600;700;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
+  <link rel="preload" href="assets/fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/style.css">
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 
 <body>
@@ -36,14 +35,14 @@
   <nav aria-label="Navigation principale">
     <div class="nav-inner">
       <a href="https://perceval.sh" class="nav-logo" aria-label="Retour au site Perceval">
-        perceval<span>.sh</span>
+        <img src="assets/perceval-logo-horizontal.svg" alt="Perceval" width="175" height="30">
       </a>
       <ul class="nav-links">
         <li><a href="#attacks">Attaques</a></li>
         <li><a href="#checklist">Checklist</a></li>
         <li><a href="#quiz">Quiz</a></li>
         <li><a href="#decideurs">Décideurs</a></li>
-        <li><a href="https://perceval.sh" class="btn btn-outline" style="padding:0.45rem 1rem">perceval.sh</a></li>
+        <li class="nav-cta"><a href="https://perceval.sh" class="btn btn-outline btn-s">perceval.sh</a></li>
       </ul>
     </div>
   </nav>
@@ -51,14 +50,9 @@
   <!-- ── Hero ─────────────────────────────────────── -->
   <section id="hero" aria-labelledby="hero-title">
     <div class="container">
-      <div class="hero-eyebrow">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Sensibilisation — Phishing &amp; Ingénierie sociale</span>
-      </div>
-
       <h1 id="hero-title">
         L'attaque commence<br>
-        dans votre <span class="highlight">boîte mail</span>
+        dans votre boîte mail
       </h1>
 
       <p class="hero-sub">
@@ -76,11 +70,11 @@
         </a>
       </div>
 
-      <div style="margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:1.25rem">
-        <span class="hero-stat">Source : Verizon DBIR 2024</span>
-        <span class="hero-stat">4,45 M$ coût moyen d'une violation (IBM 2023)</span>
-        <span class="hero-stat">74% des org. FR visées (ANSSI)</span>
-      </div>
+      <ul class="preuves">
+        <li>91 % des attaques par email (Verizon DBIR 2024)</li>
+        <li>4,45 M$ coût moyen d'une violation (IBM 2023)</li>
+        <li>74 % des organisations françaises visées (ANSSI)</li>
+      </ul>
     </div>
   </section>
 
@@ -88,7 +82,6 @@
   <section id="attacks" aria-labelledby="attacks-title">
     <div class="container">
       <div class="section-header reveal">
-        <span class="tag">01 — Taxonomie</span>
         <h2 id="attacks-title">Les 6 visages du phishing</h2>
         <hr class="divider" aria-hidden="true">
         <p>Le phishing ne se limite pas aux emails génériques mal orthographiés. Les attaques modernes sont ciblées, personnalisées et difficiles à distinguer des communications légitimes.</p>
@@ -99,11 +92,11 @@
         <!-- Phishing classique -->
         <article class="attack-card reveal" role="listitem">
           <div class="attack-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
           </div>
-          <span class="attack-type">Email — Masse</span>
+          <span class="attack-type">Email de masse</span>
           <h3>Phishing classique</h3>
           <p>Envoi massif et non ciblé usurpant des marques connues (banques, services en ligne, administrations). Exploitation d'un domaine typosquatté et d'un template crédible pour voler identifiants ou données bancaires.</p>
         </article>
@@ -111,12 +104,12 @@
         <!-- Spear phishing -->
         <article class="attack-card reveal" role="listitem">
           <div class="attack-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="3"/>
               <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
             </svg>
           </div>
-          <span class="attack-type">Email — Ciblé</span>
+          <span class="attack-type">Email ciblé</span>
           <h3>Spear phishing</h3>
           <p>Attaque personnalisée sur un individu précis. L'attaquant collecte des informations (LinkedIn, réseaux sociaux, site entreprise) pour rédiger un message contextualisé qui lève naturellement la méfiance.</p>
         </article>
@@ -124,13 +117,13 @@
         <!-- Whaling -->
         <article class="attack-card reveal" role="listitem">
           <div class="attack-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/>
               <path d="M16 3l-4 4-4-4"/>
               <circle cx="12" cy="14" r="2"/>
             </svg>
           </div>
-          <span class="attack-type">Email — Dirigeants</span>
+          <span class="attack-type">Email aux dirigeants</span>
           <h3>Whaling</h3>
           <p>Spear phishing visant les C-levels (PDG, DAF, DSI). L'objectif est souvent l'arnaque au président : ordres de virement frauduleux exploitant l'autorité hiérarchique pour court-circuiter les procédures de validation.</p>
         </article>
@@ -138,7 +131,7 @@
         <!-- Smishing -->
         <article class="attack-card reveal" role="listitem">
           <div class="attack-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
               <rect x="5" y="2" width="14" height="20" rx="2"/>
               <path d="M12 18h.01"/>
               <path d="M9 7h6M9 11h6"/>
@@ -152,7 +145,7 @@
         <!-- Vishing -->
         <article class="attack-card reveal" role="listitem">
           <div class="attack-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.02 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
             </svg>
           </div>
@@ -164,7 +157,7 @@
         <!-- Quishing -->
         <article class="attack-card reveal" role="listitem">
           <div class="attack-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
               <rect x="3" y="3" width="7" height="7" rx="1"/>
               <rect x="14" y="3" width="7" height="7" rx="1"/>
               <rect x="3" y="14" width="7" height="7" rx="1"/>
@@ -186,14 +179,13 @@
       <div class="checklist-layout">
 
         <div class="checklist-info reveal">
-          <span class="tag">02 — Protocole</span>
           <h2 id="checklist-title">Analyser un<br>email suspect</h2>
           <hr class="divider" aria-hidden="true">
           <p>Avant de cliquer sur quoi que ce soit, passez cet email au crible. Chaque point coché réduit la surface d'exposition.</p>
 
           <div class="checklist-note reveal">
             <p>
-              <strong style="color:var(--gold)">Règle des 30 secondes</strong><br>
+              <strong>Règle des 30 secondes</strong><br>
               Un email qui vous pousse à agir vite est conçu pour vous empêcher de penser. Prenez 30 secondes. Un email légitime peut attendre.
             </p>
           </div>
@@ -203,7 +195,7 @@
 
           <li class="checklist-item" role="checkbox" aria-checked="false" tabindex="0">
             <span class="check-box" aria-hidden="true">
-              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="#0d0e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M1 3.5L3.5 6L9 1"/>
               </svg>
             </span>
@@ -215,7 +207,7 @@
 
           <li class="checklist-item" role="checkbox" aria-checked="false" tabindex="0">
             <span class="check-box" aria-hidden="true">
-              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="#0d0e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M1 3.5L3.5 6L9 1"/>
               </svg>
             </span>
@@ -227,7 +219,7 @@
 
           <li class="checklist-item" role="checkbox" aria-checked="false" tabindex="0">
             <span class="check-box" aria-hidden="true">
-              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="#0d0e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M1 3.5L3.5 6L9 1"/>
               </svg>
             </span>
@@ -239,19 +231,19 @@
 
           <li class="checklist-item" role="checkbox" aria-checked="false" tabindex="0">
             <span class="check-box" aria-hidden="true">
-              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="#0d0e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M1 3.5L3.5 6L9 1"/>
               </svg>
             </span>
             <div>
               <div class="check-label">Demande</div>
-              <span class="check-text">Ne jamais saisir ses identifiants depuis un lien reçu par email — accéder directement au site</span>
+              <span class="check-text">Ne jamais saisir ses identifiants depuis un lien reçu par email : accéder directement au site</span>
             </div>
           </li>
 
           <li class="checklist-item" role="checkbox" aria-checked="false" tabindex="0">
             <span class="check-box" aria-hidden="true">
-              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="#0d0e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M1 3.5L3.5 6L9 1"/>
               </svg>
             </span>
@@ -263,7 +255,7 @@
 
           <li class="checklist-item" role="checkbox" aria-checked="false" tabindex="0">
             <span class="check-box" aria-hidden="true">
-              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="#0d0e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M1 3.5L3.5 6L9 1"/>
               </svg>
             </span>
@@ -275,7 +267,7 @@
 
           <li class="checklist-item" role="checkbox" aria-checked="false" tabindex="0">
             <span class="check-box" aria-hidden="true">
-              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="#0d0e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M1 3.5L3.5 6L9 1"/>
               </svg>
             </span>
@@ -287,7 +279,7 @@
 
           <li class="checklist-item" role="checkbox" aria-checked="false" tabindex="0">
             <span class="check-box" aria-hidden="true">
-              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="#0d0e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M1 3.5L3.5 6L9 1"/>
               </svg>
             </span>
@@ -299,7 +291,7 @@
 
           <li class="checklist-item" role="checkbox" aria-checked="false" tabindex="0">
             <span class="check-box" aria-hidden="true">
-              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="#0d0e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M1 3.5L3.5 6L9 1"/>
               </svg>
             </span>
@@ -311,7 +303,7 @@
 
           <li class="checklist-item" role="checkbox" aria-checked="false" tabindex="0">
             <span class="check-box" aria-hidden="true">
-              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="#0d0e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="check-mark" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M1 3.5L3.5 6L9 1"/>
               </svg>
             </span>
@@ -329,11 +321,10 @@
   <!-- ── Quiz ─────────────────────────────────────── -->
   <section id="quiz" aria-labelledby="quiz-title">
     <div class="container">
-      <div class="section-header reveal" style="text-align:center;margin-bottom:2.5rem">
-        <span class="tag">03 — Entraînement</span>
-        <h2 id="quiz-title">Ce mail est-il du phishing ?</h2>
-        <hr class="divider" aria-hidden="true" style="margin:1.25rem auto">
-        <p style="margin:0 auto;max-width:500px">5 scénarios réels. Analysez chaque email et prenez votre décision. Un feedback détaillé vous explique les indices à repérer.</p>
+      <div class="section-header reveal">
+        <h2 id="quiz-title">Ce mail est-il du phishing&nbsp;?</h2>
+        <hr class="divider" aria-hidden="true">
+        <p>5 scénarios réels. Analysez chaque email et prenez votre décision. Un feedback détaillé vous explique les indices à repérer.</p>
       </div>
 
       <div class="quiz-container reveal">
@@ -355,7 +346,6 @@
   <section id="decideurs" aria-labelledby="decideurs-title">
     <div class="container">
       <div class="section-header reveal">
-        <span class="tag">04 — Pour les décideurs</span>
         <h2 id="decideurs-title">Le risque humain,<br>chiffré</h2>
         <hr class="divider" aria-hidden="true">
       </div>
@@ -364,27 +354,27 @@
         <article class="stat-card" role="listitem">
           <div class="stat-number">91%</div>
           <div class="stat-label">des cyberattaques démarrent par un phishing</div>
-          <p style="font-size:0.82rem;margin-top:0.5rem">Le vecteur email reste dominant malgré les progrès techniques en matière de filtrage et de détection.</p>
+          <p class="stat-text">Le vecteur email reste dominant malgré les progrès techniques en matière de filtrage et de détection.</p>
           <div class="stat-source">Verizon Data Breach Investigations Report 2024</div>
         </article>
         <article class="stat-card" role="listitem">
           <div class="stat-number">4,45M$</div>
           <div class="stat-label">coût moyen d'une violation de données</div>
-          <p style="font-size:0.82rem;margin-top:0.5rem">Rançons, pertes d'exploitation, remédiation technique, atteinte réputationnelle — l'incident phishing n'est jamais localisé.</p>
+          <p class="stat-text">Rançons, pertes d'exploitation, remédiation technique, atteinte réputationnelle : l'incident phishing n'est jamais localisé.</p>
           <div class="stat-source">IBM Cost of a Data Breach Report 2023</div>
         </article>
         <article class="stat-card" role="listitem">
           <div class="stat-number">60%</div>
           <div class="stat-label">des PME victimes cessent dans les 6 mois</div>
-          <p style="font-size:0.82rem;margin-top:0.5rem">Les grandes entreprises absorbent les incidents. Les structures de taille intermédiaire, rarement. La prévention coûte toujours moins que la remédiation.</p>
-          <div class="stat-source">ANSSI — Panorama de la cybermenace 2023</div>
+          <p class="stat-text">Les grandes entreprises absorbent les incidents. Les structures de taille intermédiaire, rarement. La prévention coûte toujours moins que la remédiation.</p>
+          <div class="stat-source">ANSSI, Panorama de la cybermenace 2023</div>
         </article>
       </div>
 
       <div class="decideurs-content">
         <div class="decideurs-text reveal">
           <h3>Ce qu'une campagne de sensibilisation change concrètement</h3>
-          <p>La technologie seule ne suffit pas. Un employé formé est votre meilleure ligne de défense — et la moins coûteuse. Une campagne bien conduite réduit le taux de clic sur les simulations de phishing de <strong>80% à moins de 5%</strong> en 12 mois.</p>
+          <p>La technologie seule ne suffit pas. Un employé formé est votre meilleure ligne de défense, et la moins coûteuse. Une campagne bien conduite réduit le taux de clic sur les simulations de phishing de <strong>80% à moins de 5%</strong> en 12 mois.</p>
           <p>Au-delà des chiffres, l'objectif est de créer des <strong>réflexes conditionnés</strong> : questionner l'urgence, vérifier les domaines, signaler sans honte. Ces comportements ne s'acquièrent pas par une note de service.</p>
           <ul class="offer-list" aria-label="Ce que Perceval propose">
             <li>Audit de maturité cyber et cartographie des vulnérabilités humaines</li>
@@ -398,15 +388,15 @@
         <div class="cta-block reveal">
           <h3>Évaluons l'exposition de votre équipe</h3>
           <p>Un premier échange de 30 minutes pour comprendre votre contexte, vos enjeux et définir ce qui fait sens pour votre organisation.</p>
-          <a href="mailto:contact@perceval.sh?subject=Sensibilisation phishing — demande d'information" class="btn btn-primary" style="width:100%;justify-content:center" aria-label="Contacter Perceval par email">
+          <a href="mailto:contact@perceval.sh?subject=Sensibilisation phishing : demande d'information" class="btn btn-clair btn-large" aria-label="Contacter Perceval par email">
             Discutons de votre équipe
           </a>
           <div class="cta-detail">
-            <strong style="color:var(--gold)">contact@perceval.sh</strong><br>
-            Réponse sous 24h — Pas de commercial, pas de démo générique.
+            <a href="mailto:contact@perceval.sh">contact@perceval.sh</a><br>
+            Réponse sous 24 h, sans démo générique.
           </div>
-          <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border)">
-            <a href="https://perceval.sh" class="btn btn-outline" style="width:100%;justify-content:center" target="_blank" rel="noopener" aria-label="Voir le site Perceval">
+          <div class="cta-more">
+            <a href="https://perceval.sh" class="btn btn-trait-clair btn-large" target="_blank" rel="noopener" aria-label="Voir le site Perceval">
               Voir perceval.sh →
             </a>
           </div>
@@ -418,13 +408,13 @@
   <!-- ── Footer ─────────────────────────────────────── -->
   <footer role="contentinfo">
     <div class="footer-inner">
-      <a href="https://perceval.sh" class="footer-logo" aria-label="Perceval — Cybersécurité">
-        perceval<span>.sh</span>
+      <a href="https://perceval.sh" class="footer-logo" aria-label="Perceval, cybersécurité">
+        <img src="assets/perceval-logo-horizontal.svg" alt="Perceval" width="140" height="24">
       </a>
       <div class="footer-meta">
-        <div>Page de sensibilisation — Contenu à but éducatif</div>
-        <div>© 2025 Perceval — Tous droits réservés</div>
-        <div style="margin-top:0.35rem">Aucun cookie, aucun tracker, aucune donnée collectée.</div>
+        <div>Page de sensibilisation, contenu à but éducatif</div>
+        <div>© 2026 Perceval. Tous droits réservés.</div>
+        <div>Aucun cookie, aucun tracker, aucune donnée collectée.</div>
       </div>
     </div>
   </footer>
